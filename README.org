@@ -16,6 +16,16 @@ channel and subsequently removed.
 
 *** gwl (git reference)
 
+*** Emacs Packages
+
+**** awqat
+
+**** bibtex-to-plain-text
+
+**** pulsar.el
+
+**** elgantt
+
 ** License
 
 The package definitions found in this channel are free software,
