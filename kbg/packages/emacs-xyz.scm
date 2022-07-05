@@ -125,3 +125,30 @@ pulse effect is added there (`pulsar-after-function-hook').")
      (synopsis "A Gantt chart/calendar for Orgmode")
      (description "El Gantt creates a Gantt calendar from your orgmode files. It provides a flexible customization system with the goal of being adaptable to ?multiple purposes. You can move dates, scroll forward and backward, jump to the underlying org file, and customize the display.")
      (license license:gpl3))))
+
+(define-public emacs-org-dblock-gantt
+  (let ((baseurl "https://git.sr.ht/~kennyballou/org-dblock-gantt.git/blob/")
+        (filename "org-dblock-gantt.el")
+        (commit "6b3869b2a9647697b48d03660a46144ea6d2fca5")
+        (revision "0"))
+    (package
+      (name "emacs-org-dblock-gantt")
+      (version (git-version "0.0" revision commit))
+      (source
+       (origin
+         (method url-fetch)
+         (uri (string-append baseurl
+                             commit
+                             "/"
+                             filename))
+         (file-name filename)
+         (sha256
+          (base32 "0b934ghbrx4himkyymgkm16sh0z9iwj3ib0qx0w0a0wxm9b4yl06"))))
+      (build-system emacs-build-system)
+      (home-page "https://git.sr.ht/~kennyballou/org-dblock-gantt.git")
+      (synopsis "Simple function to create pgfGantt charts from Org entries.")
+      (description "Simple function to create pgfGantt charts from Org entries.
+Updates a dynamic block in the subtree of question.  The function outputs
+commands which can be parsed by LaTeX exports of the document to generate a
+Gantt chart of the subtree of TODO items.")
+      (license license:gpl3))))
