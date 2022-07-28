@@ -16,10 +16,10 @@
 (define gwl
   (package
     (inherit pm:gwl)
-    (version "bf5822ff5c804177a826984e45b78634ca9c48ec")
+    (version "0.5.0")
     (source (origin
               (method url-fetch)
               (uri (string-append "https://git.savannah.gnu.org/cgit/gwl.git/snapshot/gwl-" version ".tar.gz"))
               (sha256
                (base32
-                "0yz028ln3n9s24sd6hcfxz6jfw93k66izd1zp9dm0mhwrmlkxsnd"))))))
+                "0vg40xz8ng7p1iyp20a9n92baihscykdb6ih0k5x07m3hmd7hkhs"))))))
