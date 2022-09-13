@@ -72,33 +72,6 @@ sharing references with colleagues or friends through email, etc.).")
       (home-page "https://github.com/kennyballou/bibtex-to-plain-text.el")
       (license license:gpl2))))
 
-(define-public emacs-pulsar
-  (let ((baseurl "https://gitlab.com/protesilaos/pulsar/-/raw/")
-        (filename "pulsar.el")
-        (commit "fca0e538155226bc34703a9d24adc15515bb9b80")
-        (revision "0"))
-    (package
-     (name "emacs-pulsar")
-     (version (git-version "0.0" revision commit))
-     (source (origin
-              (method url-fetch)
-              (uri (string-append baseurl
-                                  commit
-                                  "/"
-                                  filename))
-              (file-name filename)
-              (sha256
-               (base32 "1zh80sl33czfp5bzg95nf7qqr4dkhi0ljngzcf7fp0qz83x5sbnf"))))
-     (build-system emacs-build-system)
-     (synopsis "Pulse line after running select functions")
-     (description "This is a small package that temporarily highlights the
-current line after a given function is invoked.  The affected functions are
-defined in the user option `pulsar-pulse-functions'.  What Pulsar does is set
-up an advice so that those functions run a hook after they are called.  The
-pulse effect is added there (`pulsar-after-function-hook').")
-     (home-page "https://protesilaos.com/emacs/pulsar")
-     (license license:gpl3))))
-
 (define-public emacs-elgantt
   (let ((baseurl "https://github.com/legalnonsense/elgantt")
         (revision "0")
