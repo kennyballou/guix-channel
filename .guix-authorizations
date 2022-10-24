@@ -1,6 +1,6 @@
 (authorizations
   (version 0)
   (("932F 3E8E 1C0F 4A98 95D7  B8B8 B0CA A28A 0295 8308")
-   (name "kb")
-   ("B74C C4B4 1148 C3DB 364B  C211 82D9 4B35 744E 1B34")
+   (name "kb"))
+  (("B74C C4B4 1148 C3DB 364B  C211 82D9 4B35 744E 1B34")
    (name "kb")))
