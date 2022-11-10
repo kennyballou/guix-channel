@@ -9,7 +9,7 @@
   #:use-module (guix gexp)
   #:use-module (guix packages)
   #:use-module (gnu packages compression)
-  #:export (languagetool))
+  #:export (languagetool languagetool-ngram-en))
 
 (define languagetool
   (let ((baseurl "https://languagetool.org/download/")
@@ -33,3 +33,24 @@ French, Portuguese, Dutch, Ukrainian
 and [more languages](https://dev.languagetool.org/languages)")
      (home-page "https://languagetool.org/")
      (license license:lgpl2.1+))))
+
+(define languagetool-ngram-en
+  (let ((baseurl "https://languagetool.org/download/ngram-data/")
+        (version "20150817")
+        (name "LanguageTool-ngrams-en"))
+    (package
+     (name name)
+     (version version)
+     (source (origin
+              (method url-fetch)
+              (uri (string-append baseurl "ngrams-en-" version ".zip"))
+              (file-name (string-append "ngrams-en-" version ".zip"))
+              (sha256
+               (base32
+                "0b13pgwganvv3wnv96qdv8qbw0spd1zkymbaqfgihn4z3mrlir8h"))))
+     (inputs (list unzip))
+     (build-system copy-build-system)
+     (home-page "https://languagetool.org")
+     (synopsis "LanguageTool ngrams language data.")
+     (description "LanguageTool ngrams language data for more advanced checks.")
+     (license #f))))
