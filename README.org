@@ -1,0 +1,3 @@
+* KB Guix Channel
+
+Ideally, this is a staging area for packages to be submitted upstream.
