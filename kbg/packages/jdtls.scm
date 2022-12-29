@@ -30,7 +30,7 @@
      (build-system copy-build-system)
      (arguments
       '(#:install-plan '(("../bin" "bin")
-                         ("../config_linux/config.ini" "config.ini")
+                         ("../config_linux" "config_linux")
                          ("../features" "features")
                          ("../plugins" "plugins"))))
      (synopsis "Java Development Toolkit (JDT) Language Server (LS)")
