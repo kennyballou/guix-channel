@@ -126,7 +126,7 @@ commands which can be parsed by LaTeX exports of the document to generate a
 Gantt chart of the subtree of TODO items.")
       (license license:gpl3))))
 
-(define-public emacs-ltex
+(define-public emacs-eglot-ltex
   (let ((baseurl "https://raw.githubusercontent.com/emacs-languagetool/eglot-ltex/")
         (filename "eglot-ltex.el")
         (commit "5f3bc55d472cd3e61606fccf66f176dac5bd8f82")
