@@ -18,7 +18,7 @@
      (version version)
      (source (origin
               (method url-fetch)
-              (uri (string-append baseurl version "/ltex-ls" version ".tar.gz"))
+              (uri (string-append baseurl version "/ltex-ls-" version ".tar.gz"))
               (file-name (string-append "ltex-ls-" version ".tar.gz"))
               (sha256
                (base32
