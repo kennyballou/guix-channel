@@ -125,3 +125,29 @@ Updates a dynamic block in the subtree of question.  The function outputs
 commands which can be parsed by LaTeX exports of the document to generate a
 Gantt chart of the subtree of TODO items.")
       (license license:gpl3))))
+
+(define-public emacs-ltex
+  (let ((baseurl "https://raw.githubusercontent.com/emacs-languagetool/eglot-ltex/")
+        (filename "eglot-ltex.el")
+        (commit "5f3bc55d472cd3e61606fccf66f176dac5bd8f82")
+        (revision "0"))
+    (package
+     (name "emacs-eglot-ltex")
+     (version (git-version "0.0" revision commit))
+     (source (origin
+              (method url-fetch)
+              (uri (string-append
+                    baseurl
+                    commit
+                    "/"
+                    filename))
+              (file-name filename)
+              (sha256
+               (base32
+                "01m8mkkzfdmyk9d7m2x3avya34hbrd74c7g4shjw7rpharpgj7c5"))))
+     (build-system emacs-build-system)
+     (inputs (list emacs-f emacs-eglot))
+     (synopsis "eglot client leverage LTEX Language Server")
+     (description "An eglot LSP client which leverages the LTEX Language Server")
+     (home-page "https://github.com/emacs-languagetool/eglot-ltex")
+     (license license:gpl3))))
