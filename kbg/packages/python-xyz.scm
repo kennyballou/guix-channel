@@ -112,6 +112,7 @@
   #:use-module (guix build-system gnu)
   #:use-module (guix build-system cmake)
   #:use-module (guix build-system python)
+  #:use-module (guix build-system pyproject)
   #:use-module (guix build-system trivial)
   #:use-module (srfi srfi-1)
   #:use-module (srfi srfi-26))
@@ -119,14 +120,14 @@
 (define-public python-yalafi
   (package
    (name "python-yalafi")
-   (version "1.3.1")
+   (version "1.4.0")
    (source (origin
             (method url-fetch)
             (uri (pypi-uri "yalafi" version))
             (sha256
              (base32
-              "1wdvxvazyx50m4w3zb5687bb1722s4lncbgirh83v5m3ql6m8jd4"))))
-   (build-system python-build-system)
+              "02bn21prgd81gr28vl211dp9mkqfgrrbiz2sqp29y72av6p88lfj"))))
+   (build-system pyproject-build-system)
    (arguments
       '(#:tests? #f))
    (home-page "https://github.com/torik42/YaLafi")
