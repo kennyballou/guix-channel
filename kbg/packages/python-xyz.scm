@@ -134,3 +134,16 @@
    (synopsis "Yet another LaTeX filter")
    (description "Yet another LaTeX filter")
    (license license:gpl3)))
+
+(define-public python-yalafi-custom-server
+  (package
+   (inherit python-yalafi)
+   (name "python-yalafi-custom-server")
+   (version "1.4.0")
+   (source (origin
+            (method url-fetch)
+            (uri (pypi-uri "yalafi" version))
+            (sha256
+             (base32
+              "02bn21prgd81gr28vl211dp9mkqfgrrbiz2sqp29y72av6p88lfj"))
+            (patches (search-patches "./kbg/patches/allow-setting-a-custom-server.patch"))))))
