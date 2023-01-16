@@ -6,6 +6,24 @@ more information on [[https://guix.gnu.org/manual/en/html_node/Channels.html][Gu
 *Disclaimer*: Packages found here may be upstreamed into the standard [[https://guix.gnu.org/][GNU Guix]]
 channel and subsequently removed.
 
+** Channel Introduction
+
+Feel free to add the following to your channels list.
+
+#+begin_src scheme
+(channel
+ (name 'kbg)
+ (url "https://git.sr.ht/~kennyballou/guix-channel.git")
+ (branch "master")
+ (commit
+  "69b39e045639354606dbb665a1957213e829391f")
+ (introduction
+  (make-channel-introduction
+   "b9d0b8041d28ebd9f85cb041aa3f2235c8b39417"
+   (openpgp-fingerprint
+    "10F4 14AB D526 0D0E 2372  8C08 FE55 890B 57AE DCE5"))))
+#+end_src
+
 ** Packages
 
 *** nix-direnv
