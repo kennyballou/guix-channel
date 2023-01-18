@@ -151,3 +151,28 @@ Gantt chart of the subtree of TODO items.")
      (description "An eglot LSP client which leverages the LTEX Language Server")
      (home-page "https://github.com/emacs-languagetool/eglot-ltex")
      (license license:gpl3))))
+
+(define-public emacs-flymake-vale
+  (let ((baseurl "https://raw.githubusercontent.com/tpeacock19/flymake-vale/")
+        (filename "flymake-vale.el")
+        (commit "914f30177dec0310d1ecab1fb798f2b70a018f24")
+        (revision "0"))
+    (package
+     (name "emacs-flymake-vale")
+     (version (git-version "0.0" revision commit))
+     (source (origin
+              (method url-fetch)
+              (uri (string-append
+                    baseurl
+                    commit
+                    "/"
+                    filename))
+              (file-name filename)
+              (sha256
+               (base32
+                "1402kr6wmz59gyf27k58h7j0q76jhjmsqvich9ny1sk2s3af8wij"))))
+     (build-system emacs-build-system)
+     (synopsis "Flymake Vale Backend")
+     (description "Flymake backend for Vale prose linter.")
+     (home-page "https://github.com/tpeacock19/flymake-vale")
+     (license license:gpl3))))
