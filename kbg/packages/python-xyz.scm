@@ -146,4 +146,5 @@
             (sha256
              (base32
               "02bn21prgd81gr28vl211dp9mkqfgrrbiz2sqp29y72av6p88lfj"))
-            (patches (search-patches "./kbg/patches/allow-setting-a-custom-server.patch"))))))
+            (patches (search-patches "./kbg/patches/allow-setting-a-custom-server.patch"
+                                     "./kbg/patches/daemonize-with-pidfile.patch"))))))

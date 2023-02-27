@@ -1,0 +1,42 @@
+diff --git a/yalafi/shell/shell.py b/yalafi/shell/shell.py
+index a878524..b173096 100644
+--- a/yalafi/shell/shell.py
++++ b/yalafi/shell/shell.py
+@@ -37,6 +37,8 @@
+ ltdirectory = '../LT/LanguageTool-4.7/'
+ ltcommand = 'java -jar languagetool-commandline.jar'
+ 
++pidfile = None
++
+ # on option --server lt: address of server hosted by LT
+ #
+ ltserver = 'https://languagetool.org/api/v2/check'
+@@ -154,6 +156,7 @@ parser.add_argument('--single-letters')
+ parser.add_argument('--equation-punctuation')
+ parser.add_argument('--server', default='')
+ parser.add_argument('--lt-server-options', default='')
++parser.add_argument('--pidfile')
+ parser.add_argument('--textgears')
+ parser.add_argument('--multi-language', action='store_true')
+ parser.add_argument('--ml-continue-threshold', type=int,
+@@ -250,6 +253,11 @@ elif cmdline.server not in ['lt', 'my', 'stop']:
+     ltserver = cmdline.server
+     cmdline.server = 'lt'
+ 
++if cmdline.pidfile is None or cmdline.pidfile == '':
++    sys.stderr.write("Missing required parameter: --pidfile")
++    sys.exit(2)
++else:
++    pidfile = cmdline.pidfile
+ 
+ # option --add-modules: read declarations from root document
+ # - prepend packages to list from option --packages
+@@ -362,6 +370,8 @@ proofreader.init(vars)
+ #
+ if cmdline.as_server is not None:
+     from yalafi.shell import server
++    with open(pidfile, 'w') as pid:
++        pid.write(str(os.getpid()))
+     server.run_server('localhost', cmdline.as_server,
+                         proofreader.run_proofreader_options,
+                         lt_option_map, cmdline.lt_options[1:].split())
