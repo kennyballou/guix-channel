@@ -13,19 +13,21 @@
   #:use-module ((guix licenses) #:prefix license:))
 
 (define-public jdtls
-  (let ((baseurl "https://download.eclipse.org/jdtls/snapshots/")
-        (version "1.19.0-202212220256")
-        (name "jdt-language-server"))
+  (let* ((baseurl "https://download.eclipse.org/jdtls/milestones/")
+         (version-base "1.21.0")
+         (version-date "202303161431")
+         (version (string-append version-base "-" version-date))
+         (name "jdt-language-server"))
     (package
      (name name)
      (version version)
      (source (origin
               (method url-fetch)
-              (uri (string-append baseurl name "-" version ".tar.gz"))
+              (uri (string-append baseurl version "/" name "-" version ".tar.gz"))
               (file-name (string-append name "-" version ".tar.gz"))
               (sha256
                (base32
-                "1zdvx4fygqkil6gxrgy6ah1jy640n95sfyajqxgahm9ngdhf9hhs"))))
+                "0c0sz9a9jypbfaav29z3k5n9qys1l197mkdhwisbjbd0yd547i3k"))))
      (inputs (list python-wrapper))
      (build-system copy-build-system)
      (arguments
