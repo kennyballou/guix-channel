@@ -23,7 +23,7 @@
      (version version)
      (source (origin
               (method url-fetch)
-              (uri (string-append baseurl version "/" name "-" version ".tar.gz"))
+              (uri (string-append baseurl "/" version-base "/" name "-" version ".tar.gz"))
               (file-name (string-append name "-" version ".tar.gz"))
               (sha256
                (base32
