@@ -176,3 +176,28 @@ Gantt chart of the subtree of TODO items.")
      (description "Flymake backend for Vale prose linter.")
      (home-page "https://github.com/tpeacock19/flymake-vale")
      (license license:gpl3))))
+
+(define-public emacs-gc-stats
+  (let ((baseurl "https://git.sr.ht/~yantar92/emacs-gc-stats/blob/")
+        (filename "emacs-gc-stats.el")
+        (commit "a9acd357aa49dd98bf95e767519efa4d7fb98537")
+        (revision "0"))
+    (package
+      (name "emacs-gc-stats")
+      (version (git-version "0.0" revision commit))
+      (source
+       (origin
+         (method url-fetch)
+         (uri (string-append baseurl
+                             commit
+                             "/"
+                             filename))
+         (file-name filename)
+         (sha256
+          (base32 "1v2a7p3jfg89wm8b854rvbn0b8cwncadbbdch4qmcgmhc6bc9d7s"))))
+      (build-system emacs-build-system)
+      (home-page "https://git.sr.ht/~yantar92/emacs-gc-stats")
+      (synopsis "Collect Emacs garbage collection statistics")
+      (description "This package collects Emacs garbage statistics over time and saves
+it in the format that can be shared with Emacs maintainers.")
+      (license license:gpl3))))
