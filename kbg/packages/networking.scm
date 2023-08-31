@@ -26,7 +26,7 @@
             (with-output-to-file (string-append bin "isup")
               (lambda _
                 (format #t "#!~a/bin/sh
-ping --count=1 2>&1 > /dev/null $@
+ping --count=1 2> /dev/null $@
 echo $?" bash)))
             (chmod (string-append bin "isup") #o755)))))
     (native-inputs
