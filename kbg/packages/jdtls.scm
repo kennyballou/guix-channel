@@ -39,3 +39,25 @@
      (description "Eclipse JDT Language Server Jar")
      (home-page "https://eclipse.org")
      (license license:epl2.0))))
+
+(define-public java-junit-platform-console-standalone
+  (let* ((baseurl "https://repo1.maven.org/maven2/org/junit/platform/")
+         (version "1.10.0")
+         (name "junit-platform-console-standalone")
+         (filename (string-append name "-" version ".jar")))
+    (package
+      (name name)
+      (version version)
+      (source (origin
+                (method url-fetch)
+                (uri (string-append baseurl name "/" version "/" filename))
+                (file-name filename)
+                (sha256
+                 (base32
+                  "181rv9c7gb1r1l63063q1xln9f7kxvq5m0537hknjfdmpmvx74l1"))))
+      (inputs '())
+      (build-system copy-build-system)
+      (synopsis "JUnit Console Runner")
+      (description "Standalone (uberjar) JUnit Console Runner")
+      (home-page "https://junit.org/junit5/")
+      (license license:epl2.0))))
