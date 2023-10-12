@@ -6,6 +6,10 @@ more information on [[https://guix.gnu.org/manual/en/html_node/Channels.html][Gu
 *Disclaimer*: Packages found here may be upstreamed into the standard [[https://guix.gnu.org/][GNU Guix]]
 channel and subsequently removed.
 
+#+begin_quote
+Channel packages are now indexed on [[https://toys.whereis.みんな/]]!
+#+end_quote
+
 ** Channel Introduction
 
 Feel free to add the following to your channels list.
