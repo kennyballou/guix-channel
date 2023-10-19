@@ -201,3 +201,27 @@ Gantt chart of the subtree of TODO items.")
       (description "This package collects Emacs garbage statistics over time and saves
 it in the format that can be shared with Emacs maintainers.")
       (license license:gpl3))))
+
+(define-public emacs-k-mode
+  (let ((baseurl "https://raw.githubusercontent.com/runtimeverification/k-editor-support/")
+        (filename "k-mode.el")
+        (commit "e6354d00c0c9e8c40dfc9b93f7d945de4b73583e")
+        (revision "0"))
+    (package
+     (name "emacs-k-mode")
+     (version (git-version "0.0" revision commit))
+     (source
+      (origin
+       (method url-fetch)
+       (uri (string-append baseurl
+                           commit
+                           "/emacs/"
+                           filename))
+       (file-name filename)
+       (sha256
+        (base32 "00w7z3s81xsj2w905d0z87h9yipic6y8a744yprnkp177md75bdl"))))
+     (build-system emacs-build-system)
+     (home-page "https://kframework.org/editor_support/")
+     (synopsis "Emacs mode for the K Framework")
+     (description "K framework major mode for Emacs.")
+     (license license:bsd-3))))
