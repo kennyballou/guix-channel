@@ -35,3 +35,27 @@
       (synopsis "Customized BSU CS Thesis/Dissertation \\LaTeX class.")
       (description "Approved BSU CS Masters Thesis/PhD dissertation class file.")
       (license license:expat))))
+
+(define-public texlive-beamercolortheme-modus-operandi
+  (let ((url "https://git.sr.ht/~kennyballou/beamercolorthememodusoperandi.git")
+        (version "20231026")
+        (commit "6d61a7e0c1b28a155324437c17c537b293f1348a"))
+    (package
+     (name "texlive-beamercolortheme-modus-operandi")
+     (version (string-append version "-" commit))
+     (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url url)
+                    (commit commit)))
+              (sha256
+               (base32 "0k5ayhlkq3nlpyzdda2i4azhdsvyi0r6a76if57ni35836wvfz4a"))))
+     (build-system copy-build-system)
+     (arguments
+      `(#:install-plan '(("beamercolorthememodusoperandi.sty"
+                          "share/texmf-dist/tex/generic/beamercolorthememodusoperandi.sty"))))
+     (home-page url)
+     (synopsis "Basic Modus Operandi Beamer Color Theme")
+     (description "Basic Beamer color theme based on the Modus (Operandi) color
+ themes developed by @protesilaos")
+     (license license:gpl3+))))
