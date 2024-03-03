@@ -56,6 +56,23 @@ kernel that underlies OSX.")
     (description "Raw FFI bindings for all of Windows API.")
     (license (list license:expat license:asl2.0))))
 
+(define-public rust-core-foundation-sys-0.7
+  (package
+    (name "rust-core-foundation-sys")
+    (version "0.7.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "core-foundation-sys" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1b5qfnnmg49sawwfsb0c0wbj81bqi7h7lh68pmhbidf0jjs1m9xk"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/servo/core-foundation-rs")
+    (synopsis "Bindings to Core Foundation for macOS")
+    (description "Bindings to Core Foundation for @code{macOS}")
+    (license (list license:expat license:asl2.0))))
+
 (define-public rust-core-foundation-0.7
   (package
     (name "rust-core-foundation")
