@@ -73,6 +73,26 @@ kernel that underlies OSX.")
     (description "Bindings to Core Foundation for @code{macOS}")
     (license (list license:expat license:asl2.0))))
 
+(define-public rust-winapi-i686-pc-windows-gnu-0.4
+  (package
+    (name "rust-winapi-i686-pc-windows-gnu")
+    (version "0.4.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "winapi-i686-pc-windows-gnu" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1dmpa6mvcvzz16zg6d5vrfy4bxgg541wxrcip7cnshi06v38ffxc"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/retep998/winapi-rs")
+    (synopsis
+     "Import libraries for the i686-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead.")
+    (description
+     "Import libraries for the i686-pc-windows-gnu target.  Please don't use this
+crate directly, depend on winapi instead.")
+    (license (list license:expat license:asl2.0))))
+
 (define-public rust-core-foundation-0.7
   (package
     (name "rust-core-foundation")
