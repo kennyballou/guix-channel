@@ -9,6 +9,7 @@
   #:use-module (guix download)
   #:use-module (guix packages)
   #:use-module (gnu packages crates-io)
+  #:use-module (gnu packages crates-windows)
   #:use-module (guix utils)
   #:use-module (guix)
   #:use-module ((guix licenses) #:prefix license:))
@@ -90,6 +91,26 @@ kernel that underlies OSX.")
      "Import libraries for the i686-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead.")
     (description
      "Import libraries for the i686-pc-windows-gnu target.  Please don't use this
+crate directly, depend on winapi instead.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-winapi-x86-64-pc-windows-gnu-0.4
+  (package
+    (name "rust-winapi-x86-64-pc-windows-gnu")
+    (version "0.4.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "winapi-x86-64-pc-windows-gnu" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0gqq64czqb64kskjryj8isp62m2sgvx25yyj3kpc2myh85w24bki"))))
+    (build-system cargo-build-system)
+    (home-page "https://github.com/retep998/winapi-rs")
+    (synopsis
+     "Import libraries for the x86-64-pc-windows-gnu target. Please don't use this crate directly, depend on winapi instead.")
+    (description
+     "Import libraries for the x86-54-pc-windows-gnu target.  Please don't use this
 crate directly, depend on winapi instead.")
     (license (list license:expat license:asl2.0))))
 
