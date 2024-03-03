@@ -36,6 +36,26 @@
 kernel that underlies OSX.")
     (license license:bsd-2)))
 
+(define-public rust-winapi-0.3
+  (package
+    (name "rust-winapi")
+    (version "0.3.9")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "winapi" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "06gl025x418lchw1wxj64ycr7gha83m44cjr5sarhynd9xkrm0sw"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-winapi-i686-pc-windows-gnu" ,rust-winapi-i686-pc-windows-gnu-0.4)
+                       ("rust-winapi-x86-64-pc-windows-gnu" ,rust-winapi-x86-64-pc-windows-gnu-0.4))))
+    (home-page "https://github.com/retep998/winapi-rs")
+    (synopsis "Raw FFI bindings for all of Windows API.")
+    (description "Raw FFI bindings for all of Windows API.")
+    (license (list license:expat license:asl2.0))))
+
 (define-public rust-core-foundation-0.7
   (package
     (name "rust-core-foundation")
