@@ -13,6 +13,29 @@
   #:use-module (guix)
   #:use-module ((guix licenses) #:prefix license:))
 
+(define-public rust-mach-0.3
+  (package
+    (name "rust-mach")
+    (version "0.3.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "mach" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1yksa8lwzqh150gr4417rls1wk20asy9vhp8kq5g9n7z58xyh8xq"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-libc" ,rust-libc-0.2)
+                       ("rust-rustc-std-workspace-core" ,rust-rustc-std-workspace-core-1))))
+    (home-page "https://github.com/fitzgen/mach")
+    (synopsis
+     "A Rust interface to the user-space API of the Mach 3.0 kernel that underlies OSX.")
+    (description
+     "This package provides a Rust interface to the user-space API of the Mach 3.0
+kernel that underlies OSX.")
+    (license license:bsd-2)))
+
 (define-public rust-core-foundation-0.7
   (package
     (name "rust-core-foundation")
