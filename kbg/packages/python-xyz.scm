@@ -222,3 +222,23 @@ syntax.")
     (synopsis "Enlighten Progress Bar")
     (description "Enlighten Progress Bar")
     (license license:mpl2.0)))
+
+(define-public python-pypubsub
+  (let ((version "4.0.3")
+        (baseurl "https://github.com/schollii/pypubsub/archive/refs/tags/"))
+    (package
+      (name "python-pypubsub")
+      (version version)
+      (source
+       (origin
+         (method url-fetch)
+         (uri (string-append baseurl "v" version ".tar.gz"))
+         (file-name (string-append "v" version ".tar.gz"))
+         (sha256
+          (base32
+           "18l97965bfw832z74lcslpg155vchcnq3xlghnmin0mh3jm3vy0d"))))
+      (build-system python-build-system)
+      (home-page "https://github.com/schollii/pypubsub")
+      (synopsis "Provides a publish-subscribe API to facilitate event-based or message-based architecture in a single-process application")
+      (description "Provides a publish-subscribe API to facilitate event-based or message-based architecture in a single-process application. It is pure Python and works on Python 3.3+. It is centered on the notion of a topic; senders publish messages of a given topic, and listeners subscribe to messages of a given topic, all inside the same process. The package also supports a variety of advanced features that facilitate debugging and maintaining topics and messages in larger desktop- or server-based applications.")
+      (license license:bsd-2))))
