@@ -149,3 +149,22 @@
               "02bn21prgd81gr28vl211dp9mkqfgrrbiz2sqp29y72av6p88lfj"))
             (patches (search-patches "./kbg/patches/allow-setting-a-custom-server.patch"
                                      "./kbg/patches/daemonize-with-pidfile.patch"))))))
+
+(define-public python-backports.functools-lru-cache
+  (package
+    (name "python-backports.functools-lru-cache")
+    (version "2.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "backports.functools_lru_cache" version))
+       (sha256
+        (base32 "16bggzq8n97xg3xw2xmgylfxgsiysckf1j87i0b19878vbhabgyw"))))
+    (build-system pyproject-build-system)
+    (arguments
+     '(#:phases (modify-phases %standard-phases
+                  (delete 'check))))
+    (home-page "https://github.com/jaraco/backports.functools_lru_cache")
+    (synopsis "Backport of functools.lru_cache")
+    (description "Backport of functools.lru_cache")
+    (license license:expat)))
