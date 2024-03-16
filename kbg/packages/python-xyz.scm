@@ -168,3 +168,22 @@
     (synopsis "Backport of functools.lru_cache")
     (description "Backport of functools.lru_cache")
     (license license:expat)))
+
+(define-public python-addict
+  (package
+    (name "python-addict")
+    (version "2.4.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "addict" version))
+       (sha256
+        (base32 "1574sicy5ydx9pvva3lbx8qp56z9jbdwbj26aqgjhyh61q723cmk"))))
+    (build-system pyproject-build-system)
+    (home-page "https://github.com/mewwts/addict")
+    (synopsis
+     "Addict is a dictionary whose items can be set using both attribute and item syntax.")
+    (description
+     "Addict is a dictionary whose items can be set using both attribute and item
+syntax.")
+    (license license:expat)))
