@@ -203,3 +203,22 @@ syntax.")
     (synopsis "Prefixed alternative numeric library")
     (description "Prefixed alternative numeric library")
     (license license:mpl2.0)))
+
+(define-public python-enlighten
+  (package
+    (name "python-enlighten")
+    (version "1.12.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "enlighten" version))
+       (sha256
+        (base32 "0psvglhi0c7d7pdk9rfb8scnv3xbq2fz78619x2mxvz094mxkwvm"))))
+    (build-system pyproject-build-system)
+    (propagated-inputs (list python-backports.functools-lru-cache
+                             python-blessed
+                             python-prefixed))
+    (home-page "https://github.com/Rockhopper-Technologies/enlighten")
+    (synopsis "Enlighten Progress Bar")
+    (description "Enlighten Progress Bar")
+    (license license:mpl2.0)))
