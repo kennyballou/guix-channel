@@ -187,3 +187,19 @@
      "Addict is a dictionary whose items can be set using both attribute and item
 syntax.")
     (license license:expat)))
+
+(define-public python-prefixed
+  (package
+    (name "python-prefixed")
+    (version "0.7.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "prefixed" version))
+       (sha256
+        (base32 "1sdvxwy4kvcxvnq1nx70j1ccx5ga6wdb478vqd5azf1fc1gd2m0b"))))
+    (build-system pyproject-build-system)
+    (home-page "https://github.com/Rockhopper-Technologies/prefixed")
+    (synopsis "Prefixed alternative numeric library")
+    (description "Prefixed alternative numeric library")
+    (license license:mpl2.0)))
