@@ -30,17 +30,17 @@
 
 (define coq-math-classes
   (let ((baseurl "https://github.com/coq-community/math-classes/archive/refs/tags/")
-        (version "8.18.0"))
+        (version "8.19.0"))
     (package
      (name "coq-math-classes")
-     (version "8.18.0")
+     (version version)
      (source (origin
               (method url-fetch)
               (uri (string-append baseurl version ".tar.gz"))
               (file-name (string-append "math-classes-" version ".tar.gz"))
               (sha256
                (base32
-                "00276x98lcnjndyk3phq84qk8wapwhq8407zzx4dzg7xqww2amz8"))))
+                "14j40cqv82sjg6wcfrrdakx321fb56156xdi7w904vlpxhfcyaq8"))))
      (build-system gnu-build-system)
      (native-inputs
       (list coq ocaml ocamlbuild ocaml-findlib))
