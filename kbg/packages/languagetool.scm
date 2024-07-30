@@ -27,6 +27,13 @@
                 "021y8y0fkdg24llax862j224gczkia0y806c725papxi97r2kx9j"))))
      (inputs (list unzip))
      (build-system copy-build-system)
+     (arguments
+      '(#:install-plan '(("languagetool.jar" "share/LanguageTool/")
+                         ("languagetool-commandline.jar" "share/LanguageTool/")
+                         ("languagetool-server.jar" "share/LanguageTool/")
+                         ("org/" "share/LanguageTool/")
+                         ("libs/" "share/LanguageTool/")
+                         ("META-INF" "share/LanguageTool/"))))
      (synopsis "Offline LanguageTool implementation")
      (description "A proof-reading tool for English, Spanish, German,
 French, Portuguese, Dutch, Ukrainian
