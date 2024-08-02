@@ -242,3 +242,20 @@ syntax.")
       (synopsis "Provides a publish-subscribe API to facilitate event-based or message-based architecture in a single-process application")
       (description "Provides a publish-subscribe API to facilitate event-based or message-based architecture in a single-process application. It is pure Python and works on Python 3.3+. It is centered on the notion of a topic; senders publish messages of a given topic, and listeners subscribe to messages of a given topic, all inside the same process. The package also supports a variety of advanced features that facilitate debugging and maintaining topics and messages in larger desktop- or server-based applications.")
       (license license:bsd-2))))
+
+(define-public python-oauth2token
+  (package
+    (name "python-oauth2token")
+    (version "0.0.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "oauth2token" version))
+       (sha256
+        (base32 "1y7yn1dv6anad98yamwys3i0yg5grfg2km87m3fv9qpvhcylf0nz"))))
+    (build-system pyproject-build-system)
+    (propagated-inputs (list python-google-auth-oauthlib python-pyxdg))
+    (home-page "https://github.com/VannTen/oauth2token")
+    (synopsis "Oauth2 token management for cli applications")
+    (description "Oauth2 token management for cli applications.")
+    (license license:gpl3)))
