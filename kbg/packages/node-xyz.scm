@@ -5,6 +5,27 @@
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module (guix packages))
 
+(define-public node-prettier-3.3.3
+  (package
+    (name "node-prettier")
+    (version "3.3.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri "https://registry.npmjs.org/prettier/-/prettier-3.3.3.tgz")
+       (sha256
+        (base32 "0ilzcf1j5zl77w6rs6ch067vs7p7759d9ls09l6qwn3snl5cn7ig"))))
+    (build-system node-build-system)
+    (arguments
+     (list
+      #:tests? #f
+      #:phases #~(modify-phases %standard-phases
+                   (delete 'build))))
+    (home-page "https://prettier.io")
+    (synopsis "Prettier is an opinionated code formatter")
+    (description "Prettier is an opinionated code formatter")
+    (license license:expat)))
+
 (define-public node-fast-deep-equal-3.1.3
   (package
     (name "node-fast-deep-equal")
@@ -608,6 +629,7 @@
                                               "ts-node"
                                               "typescript")))))))
     (inputs (list node-yaml-2.2.2
+                  node-prettier-3.3.3
                   node-vscode-uri-3.0.8
                   node-vscode-nls-5.2.0
                   node-vscode-languageserver-types-3.17.5
