@@ -121,14 +121,15 @@
 (define-public python-yalafi
   (package
    (name "python-yalafi")
-   (version "1.4.0")
+   (version "1.5.0")
    (source (origin
             (method url-fetch)
             (uri (pypi-uri "yalafi" version))
             (sha256
              (base32
-              "02bn21prgd81gr28vl211dp9mkqfgrrbiz2sqp29y72av6p88lfj"))))
+              "0wwp2cdkngvk671yg43y1fywx7imis4lf6qlvhd8c2868qvcir7y"))))
    (build-system pyproject-build-system)
+   (native-inputs (list python-setuptools python-wheel))
    (arguments
       '(#:tests? #f))
    (home-page "https://github.com/torik42/YaLafi")
@@ -140,13 +141,13 @@
   (package
    (inherit python-yalafi)
    (name "python-yalafi-custom-server")
-   (version "1.4.0")
+   (version "1.5.0")
    (source (origin
             (method url-fetch)
             (uri (pypi-uri "yalafi" version))
             (sha256
              (base32
-              "02bn21prgd81gr28vl211dp9mkqfgrrbiz2sqp29y72av6p88lfj"))
+              "0wwp2cdkngvk671yg43y1fywx7imis4lf6qlvhd8c2868qvcir7y"))
             (patches (search-patches "./kbg/patches/allow-setting-a-custom-server.patch"
                                      "./kbg/patches/daemonize-with-pidfile.patch"))))))
 
