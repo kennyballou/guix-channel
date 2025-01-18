@@ -126,6 +126,28 @@ commands which can be parsed by LaTeX exports of the document to generate a
 Gantt chart of the subtree of TODO items.")
       (license license:gpl3))))
 
+(define-public emacs-org-teach
+  (let ((baseurl "https://git.sr.ht/~jamesendreshowell/org-teach")
+        (revision "0")
+        (git-commit "e21b0099a071e4ed58566795a267b16ae44eddf6"))
+    (package
+     (name "emacs-org-teach")
+     (version (git-version "0.0" revision git-commit))
+     (source
+      (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url baseurl)
+             (commit git-commit)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0xkbimmcvvkffn6ilb1l2f9s183yx3rr6hwpvvgx1xvwzir5vdqm"))))
+     (build-system emacs-build-system)
+     (home-page baseurl)
+     (synopsis "Org macros and elisp functions for authoring course materials")
+     (description "Org macros and elisp functions for authoring course materials")
+     (license license:gpl3))))
+
 (define-public emacs-eglot-ltex
   (let ((baseurl "https://raw.githubusercontent.com/emacs-languagetool/eglot-ltex/")
         (filename "eglot-ltex.el")
