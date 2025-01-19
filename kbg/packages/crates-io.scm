@@ -920,3 +920,28 @@ Protocol")
      "This package provides a crate that makes working with @code{curses}
 easy.")
     (license (list license:unlicense license:zlib))))
+
+(define-public rust-pancurses-0.16
+  (package
+    (name "rust-pancurses")
+    (version "0.16.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "pancurses" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1w0gknaz07fzq7gw7zjg1bg9xr7srp2z3zksmjr9cc23gk1qn1fk"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs
+       (("rust-libc" ,rust-libc-0.2)
+        ("rust-log" ,rust-log-0.4)
+        ("rust-ncurses" ,rust-ncurses-5)
+        ("rust-pdcurses-sys" ,rust-pdcurses-sys-0.7)
+        ("rust-winreg" ,rust-winreg-0.5))))
+    (home-page "https://github.com/ihalila/pancurses")
+    (synopsis "@code{curses} library for Rust")
+    (description "@code{pancurses} is a @code{curses} library for Rust.")
+    (license license:expat)))
