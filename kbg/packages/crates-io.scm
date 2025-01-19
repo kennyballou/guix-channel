@@ -863,6 +863,7 @@ Protocol")
     (synopsis "LaTeX Language Server")
     (description "@code{LaTeX} Language Server")
     (license license:gpl3)))
+
 (define-public rust-stderrlog-0.4
   (package
     (inherit rust-stderrlog-0.5)
@@ -896,3 +897,26 @@ Protocol")
          ("rust-libc" ,rust-libc-0.2)
          ("rust-rustc-serialize" ,rust-rustc-serialize-0.3)
          ("rust-structopt" ,rust-structopt-0.2))))))
+
+(define-public rust-easycurses-0.12
+  (package
+    (name "rust-easycurses")
+    (version "0.12.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "easycurses" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "10cp60lrhn1k0vg97jgzqbk03x4hmhrgxbz9m3gcmzhzbpn88m2a"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs
+       (("rust-pancurses" ,rust-pancurses-0.16))))
+    (home-page "https://github.com/Lokathor/easycurses-rs")
+    (synopsis "Work with @code{curses} easily")
+    (description
+     "This package provides a crate that makes working with @code{curses}
+easy.")
+    (license (list license:unlicense license:zlib))))
