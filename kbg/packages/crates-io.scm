@@ -971,3 +971,18 @@ easy.")
      "This package provides a Rust implementation of the @code{termbox}
 library.")
     (license license:expat)))
+
+(define-public rust-bitflags-0.2
+  (package
+    (inherit rust-bitflags-1)
+    (name "rust-bitflags")
+    (version "0.2.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "bitflags" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "09yk0lk3vjsrvfcnzljmgvz9inpjs0idykvni7kij38l5vn807x4"))))
+    (build-system cargo-build-system)
+    (arguments `(#:skip-build? #t))))
