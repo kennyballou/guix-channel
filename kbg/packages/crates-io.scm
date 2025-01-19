@@ -11,6 +11,7 @@
   #:use-module (gnu packages crates-io)
   #:use-module (gnu packages crates-graphics)
   #:use-module (gnu packages crates-windows)
+  #:use-module (kbg packages crates-windows)
   #:use-module (guix utils)
   #:use-module (guix)
   #:use-module ((guix licenses) #:prefix license:))
