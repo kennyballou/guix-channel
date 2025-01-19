@@ -1057,3 +1057,23 @@ library.")
     (description
      "This package provides FFI bindings for PDCurses implementation.")
     (license license:expat)))
+
+(define-public rust-termbox-sys-0.2
+  (package
+    (name "rust-termbox-sys")
+    (version "0.2.12")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "termbox-sys" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0qbydvrck1vvzk48ck9vy70m58ksisl9dj24imjq04lp4kmh0l32"))))
+    (build-system cargo-build-system)
+    (arguments `(#:skip-build? #t))
+    (home-page "https://github.com/gchp/termbox-sys")
+    (synopsis "Low level bindings for the @code{termbox} library")
+    (description
+     "This package provides low level bindings for the @code{termbox}
+library.")
+    (license license:expat)))
