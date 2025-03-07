@@ -15,6 +15,7 @@
   #:use-module (gnu packages texinfo)
   #:use-module (gnu)
   #:use-module (guix build utils)
+  #:use-module (guix build-system copy)
   #:use-module (guix build-system dune)
   #:use-module (guix build-system gnu)
   #:use-module (guix build-system ocaml)
@@ -26,7 +27,7 @@
   #:use-module (guix)
   #:use-module ((guix licenses) #:prefix license:)
   #:use-module ((srfi srfi-1) #:hide (zip))
-  #:export (coq-math-classes))
+  #:export (coq-math-classes coq-cpdtlib))
 
 (define coq-math-classes
   (let ((baseurl "https://github.com/coq-community/math-classes/archive/refs/tags/")
@@ -59,3 +60,28 @@
      (description "Math classes is a library of abstract interfaces for
 mathematical structures.")
      (license license:expat))))
+
+(define coq-cpdtlib
+  (let ((baseurl "http://adam.chlipala.net/cpdt/")
+        (version "2025-03-07"))
+    (package
+     (name "coq-cpdtlib")
+     (version version)
+     (source (origin
+              (method url-fetch)
+              (uri (string-append baseurl "cpdtlib.tgz"))
+              (file-name "cpdtlib.tgz")
+              (sha256
+               (base32
+                "1iymvmba2maiqiymz85la90gy91zgdqjhbhmdpb65nbdhs4qmwxj"))))
+     (build-system copy-build-system)
+     (native-inputs
+      (list coq ocaml ocamlbuild ocaml-findlib))
+     (arguments
+      `(#:install-plan '(("CpdtTactics.v" "lib/coq/user-contrib/")
+                         ("DepList.v" "lib/coq/user-contrib/")
+                         ("MoreSpecif.v" "lib/coq/user-contrib/"))))
+     (home-page baseurl)
+     (synopsis "Some useful libraries from the CPDT book by Adam Chlipala")
+     (description "Some useful libraries from and developed for the CPDT book by Adam Chlipala")
+     (license license:bsd-3))))
