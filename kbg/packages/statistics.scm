@@ -1,5 +1,6 @@
 (define-module (kbg packages statistics)
   #:use-module (gnu)
+  #:use-module (gnu packages cran)
   #:use-module (gnu packages statistics)
   #:use-module (guix build utils)
   #:use-module (guix build-system r)
