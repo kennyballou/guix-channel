@@ -13,13 +13,13 @@
 (define-public r-ascii
   (package
     (name "r-ascii")
-    (version "2.4")
+    (version "2.6")
     (source (origin
               (method url-fetch)
               (uri (cran-uri "ascii" version))
               (sha256
                (base32
-                "0k675an7sl00bslx4yb6vvvgnp1kl244cfjljv632asqdm3rkmrv"))))
+                "1wp330cspv5f63jcwldg59i8anv8p30kbr635p3i8l5jd9x9wi8k"))))
     (properties `((upstream-name . "ascii")))
     (build-system r-build-system)
     (propagated-inputs (list r-codetools r-digest r-survival))
