@@ -177,7 +177,7 @@ Gantt chart of the subtree of TODO items.")
 (define-public emacs-flymake-vale
   (let ((baseurl "https://raw.githubusercontent.com/tpeacock19/flymake-vale/")
         (filename "flymake-vale.el")
-        (commit "914f30177dec0310d1ecab1fb798f2b70a018f24")
+        (commit "28d4a675ed8a186b4f3d2c3613e2eeb0d97f090c")
         (revision "0"))
     (package
       (name "emacs-flymake-vale")
@@ -192,8 +192,9 @@ Gantt chart of the subtree of TODO items.")
                 (file-name filename)
                 (sha256
                  (base32
-                  "1402kr6wmz59gyf27k58h7j0q76jhjmsqvich9ny1sk2s3af8wij"))))
+                  "1i4dznyln89vhdr085sqi19d7gd2zf2gsmdvbvcq7xxfpycg1dqv"))))
       (build-system emacs-build-system)
+      (inputs (list emacs-compat))
       (synopsis "Flymake Vale Backend")
       (description "Flymake backend for Vale prose linter.")
       (home-page "https://github.com/tpeacock19/flymake-vale")
