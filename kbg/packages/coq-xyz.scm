@@ -78,9 +78,9 @@ mathematical structures.")
      (native-inputs
       (list coq ocaml ocamlbuild ocaml-findlib))
      (arguments
-      `(#:install-plan '(("CpdtTactics.v" "lib/coq/user-contrib/")
-                         ("DepList.v" "lib/coq/user-contrib/")
-                         ("MoreSpecif.v" "lib/coq/user-contrib/"))))
+      `(#:install-plan '(("CpdtTactics.v" "lib/coq/user-contrib/Cpdt/")
+                         ("DepList.v" "lib/coq/user-contrib/Cpdt/")
+                         ("MoreSpecif.v" "lib/coq/user-contrib/Cpdt/"))))
      (home-page baseurl)
      (synopsis "Some useful libraries from the CPDT book by Adam Chlipala")
      (description "Some useful libraries from and developed for the CPDT book by Adam Chlipala")
