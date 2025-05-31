@@ -42,7 +42,7 @@
 
 (define-public java-junit-platform-console-standalone
   (let* ((baseurl "https://repo1.maven.org/maven2/org/junit/platform/")
-         (version "1.11.4")
+         (version "1.12.2")
          (name "junit-platform-console-standalone")
          (filename (string-append name "-" version ".jar")))
     (package
@@ -54,7 +54,7 @@
                 (file-name filename)
                 (sha256
                  (base32
-                  "1z52nia1nbjfdqnn5xkad2crca5zva0y1368qbbxcm1l3imyy5mh"))))
+                  "0aj7j7rr4wvz5aj9w6mjhzgms9lwi34vg9lw9k878nl7i01d36rj"))))
       (inputs '())
       (build-system copy-build-system)
       (synopsis "JUnit Console Runner")
