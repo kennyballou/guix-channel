@@ -13,7 +13,7 @@
 
 (define languagetool
   (let ((baseurl "https://languagetool.org/download/")
-        (version "6.3")
+        (version "6.6")
         (name "LanguageTool"))
     (package
      (name name)
@@ -24,7 +24,7 @@
               (file-name (string-append name "-" version ".zip"))
               (sha256
                (base32
-                "021y8y0fkdg24llax862j224gczkia0y806c725papxi97r2kx9j"))))
+                "0c8ns4a97y5nz778rwxa2hpj2y6k9xwyr3ac3vz5zfwrnc30aq2k"))))
      (inputs (list unzip))
      (build-system copy-build-system)
      (arguments
