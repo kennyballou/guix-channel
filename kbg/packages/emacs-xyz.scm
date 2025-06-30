@@ -11,7 +11,7 @@
   #:use-module (guix git-download)
   #:use-module (guix packages)
   #:use-module (gnu packages emacs)
-  #:use-module (gnu packages emacs-xyz))
+  #:use-module ((gnu packages emacs-xyz) #:prefix emacs-xyz:))
 
 (define-public emacs-awqat
   (let ((baseurl "https://raw.githubusercontent.com/zkry/awqat/")
@@ -33,7 +33,6 @@
                  (base32
                   "1jqklk504i925as23sv2l3gkq2hi7lzdvi8piblxsms3r25i89w3"))))
       (build-system emacs-build-system)
-      ;; (inputs (list emacs))
       (synopsis "Awqat is a package to calculate the 5 daily Islamic prayer times in Emacs.")
       (description "This package provides the `awqat-times-for-day'
 command which displays the Islamic prayer times for the current day
@@ -141,7 +140,7 @@ Gantt chart of the subtree of TODO items.")
                  (base32
                   "1i4dznyln89vhdr085sqi19d7gd2zf2gsmdvbvcq7xxfpycg1dqv"))))
       (build-system emacs-build-system)
-      (inputs (list emacs-compat))
+      (inputs (list emacs-xyz:emacs-compat))
       (synopsis "Flymake Vale Backend")
       (description "Flymake backend for Vale prose linter.")
       (home-page "https://github.com/tpeacock19/flymake-vale")
@@ -211,9 +210,9 @@ it in the format that can be shared with Emacs maintainers.")
                 (file-name (git-file-name name version))
                 (sha256
                  (base32 "046wr7vs09xmb1bfdzkda93vm6m76p3n5pbbj34gc9bmd9yx4hc5"))))
-      (inputs (list emacs-flycheck
-                    emacs-lsp-mode
-                    emacs-magit))
+      (inputs (list emacs-xyz:emacs-flycheck
+                    emacs-xyz:emacs-lsp-mode
+                    emacs-xyz:emacs-magit))
       (build-system emacs-build-system)
       (synopsis "Lean4 Emacs mode")
       (description "Lean4 Emacs mode for the interactive proof assistant Lean4")
