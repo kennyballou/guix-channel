@@ -194,27 +194,3 @@ it in the format that can be shared with Emacs maintainers.")
       (synopsis "Emacs mode for the K Framework")
       (description "K framework major mode for Emacs.")
       (license license:bsd-3))))
-
-(define-public emacs-lean4-mode
-  (let ((baseurl "https://github.com/leanprover/lean4-mode/")
-        (git-commit "ac07247cdf546daab71d5a070477b2433e7cee01")
-        (revision "0"))
-    (package
-      (name "emacs-lean4-mode")
-      (version (git-version "0.0.0" revision git-commit))
-      (source (origin
-                (method git-fetch)
-                (uri (git-reference
-                      (url baseurl)
-                      (commit git-commit)))
-                (file-name (git-file-name name version))
-                (sha256
-                 (base32 "046wr7vs09xmb1bfdzkda93vm6m76p3n5pbbj34gc9bmd9yx4hc5"))))
-      (inputs (list emacs-xyz:emacs-flycheck
-                    emacs-xyz:emacs-lsp-mode
-                    emacs-xyz:emacs-magit))
-      (build-system emacs-build-system)
-      (synopsis "Lean4 Emacs mode")
-      (description "Lean4 Emacs mode for the interactive proof assistant Lean4")
-      (home-page "https://github.com/leanprover/lean4-mode")
-      (license license:asl2.0))))
