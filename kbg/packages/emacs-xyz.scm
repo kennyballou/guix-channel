@@ -72,33 +72,6 @@ sharing references with colleagues or friends through email, etc.).")
       (home-page "https://github.com/kennyballou/bibtex-to-plain-text.el")
       (license license:gpl2))))
 
-(define-public emacs-elgantt
-  (let ((baseurl "https://github.com/legalnonsense/elgantt")
-        (revision "0")
-        (git-commit "1a3d4fbc088997ad925ea3e2b88d77ec19f9156b"))
-    (package
-      (name "emacs-elgantt")
-      (version (git-version "0.0" revision git-commit))
-      (source
-       (origin
-         (method git-fetch)
-         (uri (git-reference
-               (url "https://github.com/legalnonsense/elgantt")
-               (commit git-commit)))
-         (file-name (git-file-name name version))
-         (sha256
-          (base32 "1jb8d9iw4xdv2ch10kgk6zyfki8sb40acbl9wii3hqrh9zahgiaw"))))
-      (inputs
-       (list emacs-dash
-             emacs-org-ql
-             emacs-s
-             emacs-ts))
-      (build-system emacs-build-system)
-      (home-page "https://github.com/legalnonsense/elgantt")
-      (synopsis "A Gantt chart/calendar for Orgmode")
-      (description "El Gantt creates a Gantt calendar from your orgmode files. It provides a flexible customization system with the goal of being adaptable to ?multiple purposes. You can move dates, scroll forward and backward, jump to the underlying org file, and customize the display.")
-      (license license:gpl3))))
-
 (define-public emacs-org-dblock-gantt
   (let ((baseurl "https://git.sr.ht/~kennyballou/org-dblock-gantt.git/blob/")
         (filename "org-dblock-gantt.el")
