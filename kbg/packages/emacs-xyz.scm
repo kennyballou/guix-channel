@@ -120,32 +120,6 @@ Gantt chart of the subtree of TODO items.")
      (description "Org macros and elisp functions for authoring course materials")
      (license license:gpl3))))
 
-(define-public emacs-flymake-vale
-  (let ((baseurl "https://raw.githubusercontent.com/tpeacock19/flymake-vale/")
-        (filename "flymake-vale.el")
-        (commit "28d4a675ed8a186b4f3d2c3613e2eeb0d97f090c")
-        (revision "0"))
-    (package
-      (name "emacs-flymake-vale")
-      (version (git-version "0.0" revision commit))
-      (source (origin
-                (method url-fetch)
-                (uri (string-append
-                      baseurl
-                      commit
-                      "/"
-                      filename))
-                (file-name filename)
-                (sha256
-                 (base32
-                  "1i4dznyln89vhdr085sqi19d7gd2zf2gsmdvbvcq7xxfpycg1dqv"))))
-      (build-system emacs-build-system)
-      (inputs (list emacs-xyz:emacs-compat))
-      (synopsis "Flymake Vale Backend")
-      (description "Flymake backend for Vale prose linter.")
-      (home-page "https://github.com/tpeacock19/flymake-vale")
-      (license license:gpl3))))
-
 (define-public emacs-k-mode
   (let ((baseurl "https://raw.githubusercontent.com/runtimeverification/k-editor-support/")
         (filename "k-mode.el")
