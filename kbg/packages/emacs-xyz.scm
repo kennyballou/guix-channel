@@ -479,3 +479,26 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/whole-line-or-region")
     (license license:gpl3)))
+
+(define-public emacs-z3-mode
+  (package
+    (name "emacs-z3-mode")
+    (version "20211116.138")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/zv/z3-mode.git")
+               (commit
+                 "0356cbe1e1e2b780ba0ddb4aaa055fa246a67931")))
+        (sha256
+          (base32
+            "0jlnxxzh9p7285m16w33l5529iglg5cihs6gqwnb6y34wpzwyar6"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-xyz:emacs-flycheck))
+    (home-page "https://github.com/zv/z3-mode")
+    (synopsis
+      "A z3/SMTLIBv2 interactive development environment")
+    (description
+      "Documentation at https://melpa.org/#/z3-mode")
+    (license license:gpl3)))
