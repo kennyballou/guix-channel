@@ -220,3 +220,26 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/bnf-mode")
     (license license:gpl3)))
+
+(define-public emacs-coverlay
+  (package
+    (name "emacs-coverlay")
+    (version "20190414.940")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/twada/coverlay.el.git")
+               (commit
+                 "0beae208d0e7d746a94385428bd61aa5cd7ea828")))
+        (sha256
+          (base32
+            "1qf1s0997n6bfx50bd0jln25p7z6y8pfibijnbqcg2011xmv5dqh"))))
+    (build-system emacs-build-system)
+    (inputs (list emacs-build:emacs-compat))
+    (home-page
+      "https://github.com/twada/coverlay.el")
+    (synopsis "Test coverage overlays")
+    (description
+      "Documentation at https://melpa.org/#/coverlay")
+    (license license:gpl3)))
