@@ -170,3 +170,28 @@ Gantt chart of the subtree of TODO items.")
       (synopsis "Emacs mode for the K Framework")
       (description "K framework major mode for Emacs.")
       (license license:bsd-3))))
+
+(define-public emacs-autodisass-java-bytecode
+  (package
+    (name "emacs-autodisass-java-bytecode")
+    (version "20230907.1729")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/gbalats/autodisass-java-bytecode.git")
+               (commit
+                 "02788145f5c70e9004c4eba5acffbb584fe7de37")))
+        (sha256
+          (base32
+            "0bfbi8rgr5sq7mc4f6dhnbyxs2kwih619d1wxq3cngnclgjvmhdq"))))
+    (build-system emacs-build-system)
+    (inputs (list emacs-build:emacs-compat))
+    (arguments
+     (list #:tests? #f))
+    (home-page "https://github.com/gbalats/autodisass-java-bytecode")
+    (synopsis
+      "Automatically disassemble Java bytecode")
+    (description
+      "Documentation at https://melpa.org/#/autodisass-java-bytecode")
+    (license license:gpl3)))
