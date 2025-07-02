@@ -454,3 +454,28 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/slurm-mode")
     (license license:gpl2+)))
+
+(define-public emacs-whole-line-or-region
+  (package
+    (name "emacs-whole-line-or-region")
+    (version "20240630.804")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/purcell/whole-line-or-region.git")
+               (commit
+                 "f39fd03cf563ffdf57144a7586a5e845969fc641")))
+        (sha256
+          (base32
+            "1l8xpfssvcfdm6q606h5sriais5i8a6j8s0i8gd6gjafby11s59y"))))
+    (build-system emacs-build-system)
+    (arguments
+     (list #:tests? #f))
+    (home-page
+      "https://github.com/purcell/whole-line-or-region")
+    (synopsis
+      "Operate on current line if region undefined")
+    (description
+      "Documentation at https://melpa.org/#/whole-line-or-region")
+    (license license:gpl3)))
