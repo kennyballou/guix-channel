@@ -290,3 +290,26 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/eshell-fringe-status")
     (license license:gpl3)))
+
+(define-public emacs-flycheck-aspell
+  (package
+    (name "emacs-flycheck-aspell")
+    (version "20250118.2052")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/leotaku/flycheck-aspell.git")
+               (commit
+                 "f7046f140866dbec3b9bd77a30c3053d3ee988e5")))
+        (sha256
+          (base32
+            "122vi80xgpv6aam0mfijygpza22l21jcpcbfysvb4d2sx2aszdsq"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-xyz:emacs-flycheck))
+    (home-page
+      "https://github.com/leotaku/flycheck-aspell")
+    (synopsis "Aspell checker for flycheck")
+    (description
+      "Documentation at https://melpa.org/#/flycheck-aspell")
+    (license license:gpl3)))
