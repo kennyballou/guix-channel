@@ -502,3 +502,25 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/z3-mode")
     (license license:gpl3)))
+
+(define-public emacs-zeal-at-point
+  (package
+    (name "emacs-zeal-at-point")
+    (version "20180131.2354")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/jinzhu/zeal-at-point.git")
+               (commit
+                 "0fc3263f44e95acd3e9d91057677621ce4d297ee")))
+        (sha256
+          (base32
+            "0aq9w9pjyzdgf63hwffhph6k43vv3cxmffklrjkjj3hqv796k8yd"))))
+    (build-system emacs-build-system)
+    (home-page
+      "https://github.com/jinzhu/zeal-at-point")
+    (synopsis "Search the word at point with Zeal")
+    (description
+      "Documentation at https://melpa.org/#/zeal-at-point")
+    (license license:expat)))
