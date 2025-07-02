@@ -385,3 +385,25 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/helm-tramp")
     (license license:gpl3)))
+
+(define-public emacs-helm-unicode
+  (package
+    (name "emacs-helm-unicode")
+    (version "20180608.1407")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/bomgar/helm-unicode.git")
+               (commit
+                 "fbeb0c5e741a6f462520884b744d43a9acbe1d34")))
+        (sha256
+          (base32
+            "1aqwjw0jky07swagxnaqcn28inckavvpnlrwj62fljglip87zrc2"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-xyz:emacs-helm))
+    (home-page "unspecified")
+    (synopsis "Helm command for unicode characters.")
+    (description
+      "Documentation at https://melpa.org/#/helm-unicode")
+    (license license:gpl3)))
