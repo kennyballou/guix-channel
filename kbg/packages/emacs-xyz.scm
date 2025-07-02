@@ -243,3 +243,27 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/coverlay")
     (license license:gpl3)))
+
+(define-public emacs-define-word
+  (package
+    (name "emacs-define-word")
+    (version "20220104.1848")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/abo-abo/define-word.git")
+               (commit
+                 "31a8c67405afa99d0e25e7c86a4ee7ef84a808fe")))
+        (sha256
+          (base32
+            "0h3dasg81f1b08xvz38nyd887pdlv60kj8q50kk2aqlpkr8j0y18"))))
+    (build-system emacs-build-system)
+    (inputs (list emacs-build:emacs-compat))
+    (home-page
+      "https://github.com/abo-abo/define-word")
+    (synopsis
+      "display the definition of word at point.")
+    (description
+      "Documentation at https://melpa.org/#/define-word")
+    (license license:gpl3)))
