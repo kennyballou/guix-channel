@@ -11,6 +11,7 @@
   #:use-module (guix git-download)
   #:use-module (guix packages)
   #:use-module (gnu packages emacs)
+  #:use-module ((gnu packages emacs-build) #:prefix emacs-build:)
   #:use-module ((gnu packages emacs-xyz) #:prefix emacs-xyz:))
 
 (define-public emacs-awqat
@@ -140,7 +141,7 @@ Gantt chart of the subtree of TODO items.")
                  (base32
                   "1i4dznyln89vhdr085sqi19d7gd2zf2gsmdvbvcq7xxfpycg1dqv"))))
       (build-system emacs-build-system)
-      (inputs (list emacs-xyz:emacs-compat))
+      (inputs (list emacs-build:emacs-compat))
       (synopsis "Flymake Vale Backend")
       (description "Flymake backend for Vale prose linter.")
       (home-page "https://github.com/tpeacock19/flymake-vale")
