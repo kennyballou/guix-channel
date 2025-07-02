@@ -267,3 +267,26 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/define-word")
     (license license:gpl3)))
+
+(define-public emacs-eshell-fringe-status
+  (package
+    (name "emacs-eshell-fringe-status")
+    (version "20170117.2316")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/ryuslash/eshell-fringe-status.git")
+               (commit
+                 "adc6997c68e39c0d52a2af1b2fd5cf2057783797")))
+        (sha256
+          (base32
+            "1cwn4cvjjd4l5kk7s6cxzafjmdv3s7k78i73fvscmsnpwx9p2wj0"))))
+    (build-system emacs-build-system)
+    (inputs (list emacs-build:emacs-compat))
+    (home-page
+      "http://projects.ryuslash.org/eshell-fringe-status/")
+    (synopsis "Show last status in fringe")
+    (description
+      "Documentation at https://melpa.org/#/eshell-fringe-status")
+    (license license:gpl3)))
