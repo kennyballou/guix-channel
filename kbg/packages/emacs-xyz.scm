@@ -195,3 +195,28 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/autodisass-java-bytecode")
     (license license:gpl3)))
+
+(define-public emacs-bnf-mode
+  (package
+    (name "emacs-bnf-mode")
+    (version "20240915.2118")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/sergeyklay/bnf-mode.git")
+               (commit
+                 "5304ab647e04916c5be4fdde41477ad429a89120")))
+        (sha256
+          (base32
+            "0d2w2hbfzvqmln7jzq5j4i4365rvl1fbi3fx252ig1ivkcb4jk8c"))))
+    (build-system emacs-build-system)
+    (inputs (list emacs-build:emacs-compat))
+    (arguments
+     (list #:tests? #f))
+    (home-page
+      "https://github.com/sergeyklay/bnf-mode")
+    (synopsis "Major mode for editing BNF grammars.")
+    (description
+      "Documentation at https://melpa.org/#/bnf-mode")
+    (license license:gpl3)))
