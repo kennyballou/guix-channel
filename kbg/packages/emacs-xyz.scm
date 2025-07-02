@@ -361,3 +361,27 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/helm-sql-connect")
     (license license:gpl3)))
+
+(define-public emacs-helm-tramp
+  (package
+    (name "emacs-helm-tramp")
+    (version "20230714.1053")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/masasam/emacs-helm-tramp.git")
+               (commit
+                 "6683eae65a106d5afd5575b2b05cdb5529ddc926")))
+        (sha256
+          (base32
+            "1cg9hawb3c6c6h8yfnnf0jamhv82y9xdcqpca497k8b24rcfmmfq"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-xyz:emacs-helm))
+    (home-page
+      "https://github.com/masasam/emacs-helm-tramp")
+    (synopsis
+      "Tramp helm interface for ssh, docker, vagrant")
+    (description
+      "Documentation at https://melpa.org/#/helm-tramp")
+    (license license:gpl3)))
