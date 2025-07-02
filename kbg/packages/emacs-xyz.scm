@@ -429,3 +429,28 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/regex-tool")
     (license license:gpl2+)))
+
+(define-public emacs-slurm-mode
+  (package
+    (name "emacs-slurm-mode")
+    (version "20210519.1109")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/ffevotte/slurm.el.git")
+               (commit
+                 "589826fbb07f625b23c322df1cc16377c4fe6f66")))
+        (sha256
+          (base32
+            "12plxmslrpx4b2aqh66zdhrmf41a6n6iaqbvsx42dk04caxfjp7m"))))
+    (build-system emacs-build-system)
+    (inputs (list emacs-build:emacs-dash
+                  emacs-build:emacs-s))
+    (home-page
+      "https://github.com/ffevotte/slurm.el")
+    (synopsis
+      "Interaction with the SLURM job scheduling system")
+    (description
+      "Documentation at https://melpa.org/#/slurm-mode")
+    (license license:gpl2+)))
