@@ -337,3 +337,27 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/helm-recoll")
     (license license:gpl3)))
+
+(define-public emacs-helm-sql-connect
+  (package
+    (name "emacs-helm-sql-connect")
+    (version "20170319.1251")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/eric-hansen/helm-sql-connect.git")
+               (commit
+                 "5aead55b6f8636140945714d8c332b287ab9ef10")))
+        (sha256
+          (base32
+            "037gri2r9y135av8gbgi9d8k90qs8jlax0bimzcbwdkyhibhzrcp"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-xyz:emacs-helm))
+    (home-page
+      "https://github.com/eric-hansen/helm-sql-connect")
+    (synopsis
+      "Choose a database to connect to via Helm.")
+    (description
+      "Documentation at https://melpa.org/#/helm-sql-connect")
+    (license license:gpl3)))
