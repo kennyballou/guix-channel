@@ -407,3 +407,25 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/helm-unicode")
     (license license:gpl3)))
+
+(define-public emacs-regex-tool
+  (package
+    (name "emacs-regex-tool")
+    (version "20170104.1918")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/jwiegley/regex-tool.git")
+               (commit
+                 "0b4a0111143c88ef94bec56624cb2e00c1a054e6")))
+        (sha256
+          (base32
+            "03qm8s7nqsj0pjnnb0p84gk7hvad4bywn3rhr3ibzj6hxqvppbqj"))))
+    (build-system emacs-build-system)
+    (home-page "http://www.newartisans.com/")
+    (synopsis
+      "A regular expression evaluation tool for programmers")
+    (description
+      "Documentation at https://melpa.org/#/regex-tool")
+    (license license:gpl2+)))
