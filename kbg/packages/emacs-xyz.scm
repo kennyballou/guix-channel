@@ -313,3 +313,27 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/flycheck-aspell")
     (license license:gpl3)))
+
+(define-public emacs-helm-recoll
+  (package
+    (name "emacs-helm-recoll")
+    (version "20220920.1206")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/emacs-helm/helm-recoll.git")
+               (commit
+                 "c054047ecca360c3e02281d8d0c021f654e63f37")))
+        (sha256
+          (base32
+            "0w501j1bm73ryxygkw68xd6d7xyyr2wgd2xh0mzvd5y8djyf70hr"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-xyz:emacs-helm))
+    (home-page
+      "https://github.com/emacs-helm/helm-recoll")
+    (synopsis
+      "helm interface for the recoll desktop search tool.")
+    (description
+      "Documentation at https://melpa.org/#/helm-recoll")
+    (license license:gpl3)))
