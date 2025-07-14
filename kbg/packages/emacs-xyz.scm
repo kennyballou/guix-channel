@@ -291,6 +291,29 @@ Gantt chart of the subtree of TODO items.")
       "Documentation at https://melpa.org/#/eshell-fringe-status")
     (license license:gpl3)))
 
+(define-public emacs-helm-flymake
+  (package
+    (name "emacs-helm-flymake")
+    (version "20240902.1133")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/emacs-helm/helm-flymake.git")
+               (commit
+                 "3df968f45b066bc284b0bcce718c8493104d3f3b")))
+        (sha256
+          (base32
+            "1aiyp4jpc8y5xbfcm19g822gvbkm6rv4v28zvv5w656n5m82nfd7"))))
+    (build-system emacs-build-system)
+    (propagated-inputs (list emacs-xyz:emacs-helm))
+    (home-page
+      "https://github.com/emacs-helm/helm-flymake")
+    (synopsis "helm sources for flymake")
+    (description
+      "Documentation at https://melpa.org/#/helm-flymake")
+    (license license:gpl2)))
+
 (define-public emacs-flycheck-aspell
   (package
     (name "emacs-flycheck-aspell")
