@@ -3,7 +3,7 @@ name: Build packages
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '51 17 * * *'
   push:
     branches: '*'
   pull_request:
