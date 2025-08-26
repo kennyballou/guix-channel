@@ -3,8 +3,6 @@
 
 (use-modules (kbg packages aspell))
 (use-modules (kbg packages coq-xyz))
-(use-modules (kbg packages crates-io))
-(use-modules (kbg packages crates-windows))
 (use-modules (kbg packages emacs-xyz))
 (use-modules (kbg packages fonts))
 (use-modules (kbg packages gnuplot))
