@@ -280,3 +280,31 @@ syntax.")
     (description
      "Python API and tools to manipulate @code{OpenDocument} files.")
     (license license:gpl2)))
+
+(define-public python-rmtoo
+  (package
+    (name "python-rmtoo")
+    (version "26.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "rmtoo" version))
+       (sha256
+        (base32 "19c8zh3b7c0df1v4by9pyy6f06bvviin85543ynpx2kicwly1iq8"))))
+    (build-system pyproject-build-system)
+    (propagated-inputs (list python-gitdb
+                             python-gitpython
+                             python-jinja2
+                             python-numpy
+                             python-odfpy-1.3
+                             python-pylint
+                             python-pyyaml
+                             python-scipy
+                             python-stevedore))
+    (native-inputs (list python-setuptools python-wheel))
+    (arguments
+     (list #:tests? #f))
+    (home-page "http://rmtoo.florath.net")
+    (synopsis "Free and OpenSource Requirements Management Tool")
+    (description "Free and @code{OpenSource} Requirements Management Tool.")
+    (license license:gpl3)))
