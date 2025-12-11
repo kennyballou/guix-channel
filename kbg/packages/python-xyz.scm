@@ -260,3 +260,23 @@ syntax.")
     (synopsis "Oauth2 token management for cli applications")
     (description "Oauth2 token management for cli applications.")
     (license license:gpl3)))
+
+(define-public python-odfpy-1.3
+  (package
+    (name "python-odfpy")
+    (version "1.3.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "odfpy" version))
+       (sha256
+        (base32 "1y2ikdblxi8nzfv1pnyhgiqz1qz3zh0df06si6ykv7mlrspdgrhk"))))
+    (build-system pyproject-build-system)
+    (native-inputs (list python-setuptools python-wheel))
+    (arguments
+     (list #:tests? #f))
+    (home-page "https://github.com/eea/odfpy")
+    (synopsis "Python API and tools to manipulate OpenDocument files")
+    (description
+     "Python API and tools to manipulate @code{OpenDocument} files.")
+    (license license:gpl2)))
