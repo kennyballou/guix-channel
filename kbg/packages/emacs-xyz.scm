@@ -547,3 +547,22 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/zeal-at-point")
     (license license:expat)))
+
+(define-public emacs-nftables-mode
+  (package
+    (name "emacs-nftables-mode")
+    (version "1.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append "https://elpa.gnu.org/packages/nftables-mode-"
+                           version ".tar"))
+       (sha256
+        (base32 "1wjw6n60kj84j8gj62mr6s97xd0aqvr4v7npyxwmhckw9z13xcqv"))))
+    (build-system emacs-build-system)
+    (home-page "https://elpa.gnu.org/packages/nftables-mode.html")
+    (synopsis "Major mode for editing nftables")
+    (description
+     "This major mode currently only offers basic highlighting and primitive
+indentation.  Contributions very welcome.")
+    (license license:gpl3+)))
