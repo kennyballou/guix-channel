@@ -92,6 +92,7 @@
   #:use-module (gnu packages textutils)
   #:use-module (gnu packages time)
   #:use-module (gnu packages tls)
+  #:use-module (gnu packages tree-sitter)
   #:use-module (gnu packages version-control)
   #:use-module (gnu packages video)
   #:use-module (gnu packages web)
@@ -308,3 +309,313 @@ syntax.")
     (synopsis "Free and OpenSource Requirements Management Tool")
     (description "Free and @code{OpenSource} Requirements Management Tool.")
     (license license:gpl3)))
+
+(define-public python-tree-sitter-cpp
+  (package
+    (name "python-tree-sitter-cpp")
+    (version "0.23.4")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tree-sitter/tree-sitter-cpp")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0sbvvfa718qrjmfr53p8x3q2c19i4vhw0n20106c8mrvpsxm7zml"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (native-inputs (list tree-sitter-cpp python-setuptools python-wheel))
+    (home-page "https://github.com/tree-sitter/tree-sitter-cpp")
+    (synopsis "C++ grammar for tree-sitter")
+    (description "C++ grammar for tree-sitter.")
+    (license license:expat)))
+
+(define-public python-textx
+  (package
+    (name "python-textx")
+    (version "4.3.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "textx" version))
+       (sha256
+        (base32 "104qi9165zgm90sym5pfzjg1443zns7dsf2q3vr4w4md560arb0g"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (propagated-inputs (list python-arpeggio python-importlib-metadata))
+    (native-inputs (list python-flit-core))
+    (home-page "https://textx.github.io/textX/")
+    (synopsis "Meta-language for DSL implementation inspired by Xtext")
+    (description "Meta-language for DSL implementation inspired by Xtext.")
+    (license license:expat)))
+
+(define-public python-owlrl
+  (package
+    (name "python-owlrl")
+    (version "7.1.4")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "owlrl" version))
+       (sha256
+        (base32 "1xysf4wi3d9876avwawbp6anbb4pzrd5c91918gi3fa6wdkl1gb0"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (native-inputs (list python-poetry-core))
+    (home-page #f)
+    (synopsis
+     "A simple implementation of the OWL2 RL Profile, as well as a basic RDFS inference, on top of RDFLib. Based mechanical forward chaining.")
+    (description
+     "This package provides a simple implementation of the OWL2 RL Profile, as well as
+a basic RDFS inference, on top of RDFLib.  Based mechanical forward chaining.")
+    (license license:w3c)))
+
+(define-public python-pyshacl
+  (package
+    (name "python-pyshacl")
+    (version "0.31.0")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/RDFLib/pySHACL")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1ilh7ba4qbj6fqj97wwrxfa9j5rc6d6r0y410bv07z1pv9l94dg4"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (propagated-inputs (list python-importlib-metadata python-owlrl
+                             python-packaging python-prettytable python-rdflib))
+    (native-inputs (list python-poetry-core))
+    (home-page "https://github.com/RDFLib/pySHACL")
+    (synopsis "Python SHACL Validator")
+    (description "Python SHACL Validator.")
+    (license license:expat)))
+
+(define-public python-uritools
+  (package
+    (name "python-uritools")
+    (version "6.0.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/tkem/uritools/")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "115a8xphnv0ykd4c0pjh5rd4zy92znpdv4nwbn7n2d6irznvk00v"))))
+    (build-system pyproject-build-system)
+    (native-inputs (list python-setuptools python-wheel))
+    (home-page "https://github.com/tkem/uritools/")
+    (synopsis "URI parsing, classification and composition")
+    (description "URI parsing, classification and composition.")
+    (license license:expat)))
+
+(define-public python-spdx-tools
+  (package
+    (name "python-spdx-tools")
+    (version "0.8.4")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/spdx/tools-python")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1ljf175yx7zd4lrm4gsq0ljkn86xp0vfr7z2kir884a2fihzx04n"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f
+           #:phases #~(modify-phases %standard-phases
+                        (add-before 'build 'pretend-version
+                          (lambda _
+              (setenv "SETUPTOOLS_SCM_PRETEND_VERSION" #$version))))))
+    (propagated-inputs (list python-beartype
+                             python-click
+                             python-license-expression
+                             python-ply
+                             python-pyyaml
+                             python-rdflib
+                             python-semantic-version
+                             python-uritools
+                             python-xmltodict))
+    (native-inputs (list python-pyshacl
+                         python-pytest
+                         python-setuptools
+                         python-setuptools-scm
+                         python-tzdata
+                         python-wheel))
+    (home-page "https://github.com/spdx/tools-python")
+    (synopsis "SPDX parser and tools.")
+    (description "SPDX parser and tools.")
+    (license license:asl2.0)))
+
+(define-public python-reqif
+  (package
+    (name "python-reqif")
+    (version "0.0.48")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/strictdoc-project/reqif")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1s9m2yzgr0n3p82gar55v38ylrynqgxsjpklchc1m7pr56vwhdkc"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (propagated-inputs (list python-jinja2 python-lxml python-openpyxl
+                             python-xmlschema))
+    (native-inputs (list python-hatchling))
+    (home-page "https://github.com/strictdoc-project/reqif")
+    (synopsis "Python library for ReqIF format. ReqIF parsing and unparsing.")
+    (description
+     "Python library for @code{ReqIF} format. @code{ReqIF} parsing and unparsing.")
+    (license license:asl2.0)))
+
+(define-public python-datauri
+  (package
+    (name "python-datauri")
+    (version "3.0.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/fcurella/python-datauri/")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "19m5jwggww30m6m1wblf300nfh7jibq24wa88z9a5gbx8qyr1css"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (propagated-inputs (list python-cached-property python-typing-extensions))
+    (native-inputs (list python-setuptools python-wheel))
+    (home-page "https://github.com/fcurella/python-datauri/")
+    (synopsis "A li'l class for data URI manipulation in Python")
+    (description
+     "This package provides a li'l class for data URI manipulation in Python.")
+    (license license:unlicense)))
+
+(define-public python-webdriver-manager
+  (package
+    (name "python-webdriver-manager")
+    (version "4.0.2")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/SergeyPirogov/webdriver_manager")
+             (commit (string-append "v" version))))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "1h9bwial2hcjpihyx9jp6n5i23lnw95nadzn98h0cgxgzmmx0sk6"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (propagated-inputs (list python-packaging python-dotenv python-requests))
+    (native-inputs (list python-setuptools python-wheel))
+    (home-page "https://github.com/SergeyPirogov/webdriver_manager")
+    (synopsis
+     "Library provides the way to automatically manage drivers for different browsers")
+    (description
+     "Library provides the way to automatically manage drivers for different browsers.")
+    (license license:asl2.0)))
+
+(define-public python-html2pdf4doc
+  (package
+    (name "python-html2pdf4doc")
+    (version "0.0.31")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/mettta/html2pdf_python/")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "020hri23amim51cx569x6ypdxffrb5mmk6v04sfddn4fz9jn4aba"))))
+    (build-system pyproject-build-system)
+    (propagated-inputs (list python-pypdf python-requests python-selenium
+                             python-webdriver-manager))
+    (native-inputs (list python-hatchling))
+    (home-page "https://github.com/mettta/html2pdf_python/")
+    (synopsis "Python client for HTML2PDF4Doc JavaScript library.")
+    (description "Python client for HTML2PDF4Doc @code{JavaScript} library.")
+    (license license:expat)))
+
+(define-public python-docutils-0.22
+  (package
+    (name "python-docutils")
+    (version "0.22.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "docutils" version))
+       (sha256
+        (base32 "0g91pkgz9daxlyayydw1sqrmjc4iqsr7rdi84y7lqy680wbpgnwz"))))
+    (build-system pyproject-build-system)
+    (native-inputs (list python-flit-core))
+    (home-page "https://docutils.sourceforge.io")
+    (synopsis "Docutils -- Python Documentation Utilities")
+    (description "Docutils -- Python Documentation Utilities.")
+    (license license:bsd-3)))
+
+(define-public python-strictdoc
+  (package
+    (name "python-strictdoc")
+    (version "0.16.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "strictdoc" version))
+       (sha256
+        (base32 "0lbv19vpnkxp093ynzdmppyyb8akpf03fp0w6cx16fh49vds68s9"))
+       (patches (search-patches "./kbg/patches/strictdoc/version-compat.patch"))))
+    (build-system pyproject-build-system)
+    (propagated-inputs (list python-beautifulsoup4
+                             python-docutils-0.22
+                             python-fastapi
+                             python-html2pdf4doc
+                             python-html5lib
+                             python-jinja2
+                             python-lark
+                             python-openpyxl
+                             python-orjson
+                             python-pandas
+                             python-plotly
+                             python-pygments
+                             python-datauri
+                             python-multipart
+                             python-reqif
+                             python-robotframework
+                             python-spdx-tools
+                             python-textx
+                             python-toml
+                             python-tree-sitter
+                             python-tree-sitter-cpp
+                             python-tree-sitter-python
+                             python-uvicorn
+                             python-websockets
+                             python-xlrd
+                             python-xlsxwriter))
+    (native-inputs (list python-hatchling tree-sitter-cpp tree-sitter-python))
+    (arguments
+     (list #:tests? #f))
+    (home-page "https://strictdoc.readthedocs.io/en/stable/")
+    (synopsis
+     "StrictDoc is open-source software for technical documentation and requirements management.")
+    (description
+     "@code{StrictDoc} is open-source software for technical documentation and
+requirements management.")
+    (license license:asl2.0)))
