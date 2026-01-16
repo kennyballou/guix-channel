@@ -148,8 +148,8 @@
             (sha256
              (base32
               "0wwp2cdkngvk671yg43y1fywx7imis4lf6qlvhd8c2868qvcir7y"))
-            (patches (search-patches "./kbg/patches/allow-setting-a-custom-server.patch"
-                                     "./kbg/patches/daemonize-with-pidfile.patch"))))))
+            (patches (search-patches "./kbg/patches/yalafi/allow-setting-a-custom-server.patch"
+                                     "./kbg/patches/yalafi/daemonize-with-pidfile.patch"))))))
 
 (define-public python-backports.functools-lru-cache
   (package
