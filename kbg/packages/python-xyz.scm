@@ -638,3 +638,27 @@ requirements management.")
     (synopsis "Requirements management using version control.")
     (description "Requirements management using version control.")
     (license license:lgpl3)))
+
+(define-public python-frontmatter
+  (package
+    (name "python-frontmatter")
+    (version "3.0.8")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/jonbeebe/frontmatter")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "08sp8l1kxhhng5n1izlgd26nb4gfgvcfiwp0235l4hzgarzx9ppg"))
+       (patches (search-patches "kbg/patches/frontmatter/version-compat.patch"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (propagated-inputs (list python-pyyaml))
+    (native-inputs (list python-setuptools python-wheel))
+    (home-page "https://github.com/jonbeebe/frontmatter")
+    (synopsis "Extract YAML frontmatter from files and strings.")
+    (description "Extract YAML frontmatter from files and strings.")
+    (license license:expat)))
