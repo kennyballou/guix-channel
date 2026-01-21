@@ -633,6 +633,11 @@ requirements management.")
     (build-system pyproject-build-system)
     (arguments
      (list #:tests? #f))
+    (propagated-inputs (list python-bottle
+                             python-frontmatter
+                             python-markdown
+                             python-openpyxl
+                             python-plantuml-markdown))
     (native-inputs (list python-poetry-core))
     (home-page "https://pypi.org/project/Doorstop")
     (synopsis "Requirements management using version control.")
