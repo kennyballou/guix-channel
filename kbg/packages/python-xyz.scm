@@ -619,3 +619,22 @@ a basic RDFS inference, on top of RDFLib.  Based mechanical forward chaining.")
      "@code{StrictDoc} is open-source software for technical documentation and
 requirements management.")
     (license license:asl2.0)))
+
+(define-public python-doorstop
+  (package
+    (name "python-doorstop")
+    (version "3.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (pypi-uri "doorstop" version))
+       (sha256
+        (base32 "0wj7yx1x7vwidya4g6gpj2a4p16y18f4wwgfbck7yyp6mx5zsi5l"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (native-inputs (list python-poetry-core))
+    (home-page "https://pypi.org/project/Doorstop")
+    (synopsis "Requirements management using version control.")
+    (description "Requirements management using version control.")
+    (license license:lgpl3)))
