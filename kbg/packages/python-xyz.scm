@@ -662,3 +662,27 @@ requirements management.")
     (synopsis "Extract YAML frontmatter from files and strings.")
     (description "Extract YAML frontmatter from files and strings.")
     (license license:expat)))
+
+(define-public python-plantuml-markdown
+  (package
+    (name "python-plantuml-markdown")
+    (version "3.11.1")
+    (source
+     (origin
+       (method git-fetch)
+       (uri (git-reference
+             (url "https://github.com/mikitex70/plantuml-markdown")
+             (commit version)))
+       (file-name (git-file-name name version))
+       (sha256
+        (base32 "0gn7k9w1g82wyvqgrq6ps4jsflmjjh46ipxabssrlrzc0fmxc08f"))))
+    (build-system pyproject-build-system)
+    (arguments
+     (list #:tests? #f))
+    (propagated-inputs (list python-markdown python-requests python-six))
+    (native-inputs (list python-setuptools python-wheel))
+    (home-page "https://github.com/mikitex70/plantuml-markdown")
+    (synopsis "A PlantUML plugin for Markdown")
+    (description
+     "This package provides a @code{PlantUML} plugin for Markdown.")
+    (license license:bsd-3)))
