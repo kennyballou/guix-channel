@@ -99,6 +99,33 @@ commands which can be parsed by LaTeX exports of the document to generate a
 Gantt chart of the subtree of TODO items.")
       (license license:gpl3))))
 
+(define-public emacs-org-dblock-ebs
+  (let ((baseurl "https://git.sr.ht/~kennyballou/org-dblock-ebs.git/blob/")
+        (filename "org-dblock-ebs.el")
+        (commit "b9241c00b6c2ae64b665fb4b7352eb73c1ef56e8")
+        (revision "0"))
+    (package
+      (name "emacs-org-dblock-ebs")
+      (version (git-version "0.0" revision commit))
+      (source
+       (origin
+         (method url-fetch)
+         (uri (string-append baseurl
+                             commit
+                             "/"
+                             filename))
+         (file-name filename)
+         (sha256
+          (base32 "10mhzy2d9j672vmj83b7mbrl9w9s5a7a68mq4qysmnipmyvy4zc3"))))
+      (build-system emacs-build-system)
+      (inputs (list emacs-xyz:emacs-sqlite emacs-xyz:emacs-org))
+      (arguments
+       (list #:tests? #f))
+      (home-page "https://git.sr.ht/~kennyballou/org-dblock-ebs.git")
+      (synopsis "Emacs Org Mode Dynamic Blocks Evidence-Based Scheduling Forecasts")
+      (description "Provides EBS scheduling forecasts of project subtrees within Emacs Org-Mode.")
+      (license license:gpl3))))
+
 (define-public emacs-org-teach
   (let ((baseurl "https://git.sr.ht/~jamesendreshowell/org-teach")
         (revision "0")
