@@ -600,3 +600,29 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/ocaml-eglot")
     (license license:expat)))
+
+(define-public emacs-opam-switch-mode
+  (package
+    (name "emacs-opam-switch-mode")
+    (version "20230802.917")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/ProofGeneral/opam-switch-mode.git")
+               (commit
+                 "1069e56a662f23ea09d4e05611bdedeb99257012")))
+        (sha256
+          (base32
+            "1nqw4qjqdklgnl4pj6n95miyhvcmhs36d37yqd65dkyjc5s6dd1z"))))
+    (build-system emacs-build-system)
+    (inputs (list emacs-build:emacs-compat))
+    (arguments
+     (list #:tests? #f))
+    (home-page
+      "https://github.com/ProofGeneral/opam-switch-mode")
+    (synopsis
+      "Select OCaml opam switches via a menu")
+    (description
+      "Documentation at https://melpa.org/#/opam-switch-mode")
+    (license license:gpl3)))
