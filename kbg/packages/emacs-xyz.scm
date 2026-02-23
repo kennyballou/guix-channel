@@ -626,3 +626,49 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/opam-switch-mode")
     (license license:gpl3)))
+
+(define-public emacs-dune
+  (package
+    (name "emacs-dune")
+    (version "20260120.2128")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/ocaml/dune.git")
+               (commit
+                 "1a3fb8fdb83b907fa8b0efaf633abfc76ff7c839")))
+        (sha256
+          (base32
+            "0xc508f8ckx1indkjbhl5d3sckmi0hkfmryw368ja24a7f0rmdh1"))
+        (snippet (with-imported-modules '((guix build utils)
+                                          (ice-9 regex)
+                                          (srfi srfi-1)
+                                          (srfi srfi-2))
+                   #~(begin
+                       (use-modules (guix build utils)
+                                    (ice-9 regex)
+                                    (srfi srfi-1)
+                                    (srfi srfi-2))
+                       (let* ((re (make-regexp "editor-integration/emacs/.*\\.el"))
+                              (el-files (filter (lambda (path)
+                                                  (regexp-exec re path))
+                                                (find-files "."))))
+                              (for-each delete-file
+                                        (remove (lambda (path)
+                                                  (regexp-exec re path))
+                                                (find-files ".")))
+                              (for-each (lambda (filename)
+                                          (rename-file filename (basename filename)))
+                                        el-files)))))))
+    (build-system emacs-build-system)
+    (inputs (list emacs-build:emacs-compat
+                  emacs-xyz:emacs-flymake))
+    (arguments
+     (list #:tests? #f))
+    (home-page "https://github.com/ocaml/dune")
+    (synopsis
+      "Integration with the dune build system")
+    (description
+      "Documentation at https://melpa.org/#/dune")
+    (license license:expat)))
