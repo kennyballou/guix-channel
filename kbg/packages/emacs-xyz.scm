@@ -574,3 +574,29 @@ Gantt chart of the subtree of TODO items.")
     (description
       "Documentation at https://melpa.org/#/zeal-at-point")
     (license license:expat)))
+
+(define-public emacs-ocaml-eglot
+  (package
+    (name "emacs-ocaml-eglot")
+    (version "20260126.1618")
+    (source
+      (origin
+        (method git-fetch)
+        (uri (git-reference
+               (url "https://github.com/tarides/ocaml-eglot.git")
+               (commit
+                 "67d74e1d110e573926baae8e0b6878f645d87961")))
+        (sha256
+          (base32
+            "06hll9dp8fziqqrzc44dcp5af6p92q7yxpnfwbdcf3gwkzpv8laq"))))
+    (build-system emacs-build-system)
+    (inputs (list emacs-build:emacs-compat
+                  emacs-xyz:emacs-eglot))
+    (arguments
+     (list #:tests? #f))
+    (home-page
+      "https://github.com/tarides/ocaml-eglot")
+    (synopsis "An OCaml companion for Eglot")
+    (description
+      "Documentation at https://melpa.org/#/ocaml-eglot")
+    (license license:expat)))
