@@ -102,7 +102,7 @@ Gantt chart of the subtree of TODO items.")
 (define-public emacs-org-dblock-ebs
   (let ((baseurl "https://git.sr.ht/~kennyballou/org-dblock-ebs.git/blob/")
         (filename "org-dblock-ebs.el")
-        (commit "b9241c00b6c2ae64b665fb4b7352eb73c1ef56e8")
+        (commit "04ee97088de64c171457f6fce62bb1a7b7b856b3")
         (revision "0"))
     (package
       (name "emacs-org-dblock-ebs")
@@ -116,7 +116,7 @@ Gantt chart of the subtree of TODO items.")
                              filename))
          (file-name filename)
          (sha256
-          (base32 "10mhzy2d9j672vmj83b7mbrl9w9s5a7a68mq4qysmnipmyvy4zc3"))))
+          (base32 "1iia764dj4y1g61x6cz8yms12l8dlvj31nfmf7vwi49phg0rjqdz"))))
       (build-system emacs-build-system)
       (inputs (list emacs-xyz:emacs-sqlite emacs-xyz:emacs-org))
       (arguments
