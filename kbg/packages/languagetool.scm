@@ -12,8 +12,8 @@
   #:export (languagetool languagetool-ngram-en))
 
 (define languagetool
-  (let ((baseurl "https://languagetool.org/download/")
-        (version "6.6")
+  (let ((baseurl "https://languagetool.org/download/snapshots")
+        (version "20261120-snapshot")
         (name "LanguageTool"))
     (package
      (name name)
@@ -24,7 +24,7 @@
               (file-name (string-append name "-" version ".zip"))
               (sha256
                (base32
-                "0c8ns4a97y5nz778rwxa2hpj2y6k9xwyr3ac3vz5zfwrnc30aq2k"))))
+                "061g6n89kbd9i5ib8lbkcyi9hlmmwvr5jk6r3yppdzmb8sjz54h5"))))
      (inputs (list unzip))
      (build-system copy-build-system)
      (arguments
