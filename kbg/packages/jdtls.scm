@@ -14,8 +14,8 @@
 
 (define-public jdtls
   (let* ((baseurl "https://download.eclipse.org/jdtls/milestones")
-         (version-base "1.61.0")
-         (version-date "202609031315")
+         (version-base "1.62.0")
+         (version-date "202610131109")
          (version (string-append version-base "-" version-date))
          (name "jdt-language-server"))
     (package
@@ -27,7 +27,7 @@
               (file-name (string-append name "-" version ".tar.gz"))
               (sha256
                (base32
-                "0r2cjfwgz6rhj8h380vw9vmn79sgsfh1jfa5l8dnadhqsrrpx3ik"))))
+                "0hlky0fcpng6px4kv4w8xvfkrc5vl99yh1gh5cn3qqqhhkyxm1zm"))))
      (inputs (list python-wrapper))
      (build-system copy-build-system)
      (arguments
